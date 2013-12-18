@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Challenge #3</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<instructions>ROT13 Ceaser cipher -</instructions><br />
+		<textarea id="inputarea" placeholder="Text to be encrypted/decrypted" cols="40" rows="10" required></textarea>
+		<textarea id="outputarea" cols="40" rows="10" readonly></textarea><br />
+		<button id="submit">Encrypt/Decrypt</button><br />
+
+		<script>
+			$(document).ready(function()
+			{
+				function encryptOrDecrypt(text)
+				{
+					var key = {
+						A: "N", B: "O", C: "P", D: "Q", E: "R", F: "S", G: "T", H: "U", I: "V", J: "W", K: "X", L: "Y", M: "Z", N: "A", O: "B", P: "C", Q: "D", R: "E", S: "F", T: "G", U: "H", V: "I", W: "J", X: "K", Y: "L", Z: "M", a: "n", b: "o", c: "p", d: "q", e: "r", f: "s", g: "t", h: "u", i: "v", j: "w", k: "x", l: "y", m: "z", n: "a", o: "b", p: "c", q: "d", r: "e", s: "f", t: "g", u: "h", v: "i", w: "j", x: "l", y: "l", z: "m", " ": " "
+					}
+
+					var substitutedText = "";
+
+					for(var i = 0; i < text.length; i++)
+					{
+						substitutedText += key[text[i]];
+					}
+
+					return substitutedText;
+				}
+
+				$("#submit").click(function()
+				{
+					$("#outputarea").text(encryptOrDecrypt($("#inputarea").val()));
+				});
+			});
+		</script>
+	</body>
+</html>

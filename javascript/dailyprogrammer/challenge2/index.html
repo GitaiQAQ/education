@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Challenge #2</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<output>Find the volume of a cuboid:</output><br />
+		<input type="text" id="cuboidX" placeholder="x" required></input><br />
+		<input type="text" id="cuboidY" placeholder="y" required></input><br />
+		<input type="text" id="cuboidZ" placeholder="z" required></input><br />
+		<button id="calculate">Calculate!</button>
+		<script>
+			$(document).ready( function ()
+			{
+				function calculateVolumeOfCuboid(x, y, z)
+				{
+					return x * y * z;
+				}
+
+				$("button").click( function ()
+				{
+					var volume = calculateVolumeOfCuboid($("#cuboidX").val(), $("#cuboidY").val(), $("#cuboidZ").val());
+					$("output").html("The volume of the cuboid is: <b>" + volume + "</b>");
+				});
+			});
+		</script>
+	</body>
+</html>
