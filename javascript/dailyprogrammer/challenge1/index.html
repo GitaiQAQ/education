@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Challenge #1</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<display>Hello! Please identify yourself.</display><br />
+		<input type="text" id="firstname" placeholder="First Name" required></input><br />
+		<input type="text" id="username" placeholder="/u/username" required></input><br />
+		<input type="text" id="age" placeholder="Age" required></input><br />
+		<button id="submit">Submit</button>
+		<script>
+			$(document).ready( function () {
+				$("#submit").click( function ()
+				{
+					var firstName = $("#firstname").val();
+					var userName = $("#username").val();
+					var age = $("#age").val();
+
+					var welcomeMessage = "Your name is <b>" + firstName + "</b>, you are <b>" + age + "</b> years old, and your username is <b>" + userName + "</b>";
+
+					$("display").html(welcomeMessage);
+
+				});
+			});
+		</script>
+	</body>
+</html>
