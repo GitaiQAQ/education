@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Challenge #4</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<span>How many passwords would you like to generate?</span><br />
+		<input id="numberOfPasswordsInput" type="number" placeholder="1" required></input><br />
+		<span>How many characters would you like each password to contain?</span><br />
+		<input id="numberOfCharactersInput" type="number" placeholder="12" required></input><br />
+		<button id="generateButton">Generate!</button>
+		<p>
+		<span><b>Password(s)</b>:</span><br />
+		<output></output>
+
+		<script>
+			$(document).ready(function(){
+
+				function generatePassword(numberOfCharacters)
+				{
+					var password = "";
+
+					for(var i = 0; i < numberOfCharacters; i++)
+					{
+						password += String.fromCharCode(Math.floor(Math.random() * 96) + 33);
+					}
+
+					return password;
+				}
+
+				$("#generateButton").click(function(){
+					var passwordList = "";
+
+					for(var i = 0; i < $("#numberOfPasswordsInput").val(); i++)
+					{
+						passwordList += generatePassword($("#numberOfCharactersInput").val()) + "<br />";
+					}
+
+					$("output").html(passwordList);
+				});
+			});
+		</script>
+	</body>
+</html>
