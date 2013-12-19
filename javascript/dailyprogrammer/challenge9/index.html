@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Challenge #9</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<span><b>Instructions:</b> Enter a string of alphanumeric characters to be sorted</span><br />
+		<input id="input" type="text" required></input>
+		<button id="submit">Sort!</button></b>
+		<div id="output"></div>
+
+		<script>
+			$("document").ready(function(){
+				$("#submit").click(function() {
+					var sortableArray = [];
+					var inputText = $("#input").val().toLowerCase();
+					var sortedText = "";
+
+					for(var i = 0; i < inputText.length; i++)
+					{
+						sortableArray[i] = inputText[i];
+					}
+
+					sortableArray.sort();
+
+					for(var i = 0; i < sortableArray.length; i++)
+					{
+						sortedText += sortableArray[i];
+					}
+
+					$("#output").html("<b>Sorted: </b>" + sortedText);
+				});
+			});
+		</script>
+	</body>
+</html>
