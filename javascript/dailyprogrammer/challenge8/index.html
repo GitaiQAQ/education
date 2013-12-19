@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Challenge #8</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<input id="input" type="number" placeholder="Number of bottles" required></input><br />
+		<div id="output"></div>
+		<button id="submit">Sing!</button>
+
+		<script>
+			$(document).ready(function(){
+				function singSong(numberOfBottles)
+				{
+					var lyrics = numberOfBottles + " bottles of beer on the wall, " + numberOfBottles + " bottles of beer! Take one down and pass it around - " + (numberOfBottles - 1) + " bottles of beer on the wall!";
+
+					if(numberOfBottles < 1)
+					{
+						lyrics = "No more bottles of beer on the wall, no more bottles of beer! Go to the store and buy some more - " + $("#input").val() + " bottles of beer on the wall!";
+					}
+					else if(numberOfBottles === 1)
+					{
+						lyrics = "1 bottle of beer on the wall, 1 bottle of beer! Take one down and pass it around... damn. I guess there's no more beers left, guys.";
+					}
+
+					return lyrics;
+				}
+
+				$("#submit").click(function(){
+					for(var i = $("#input").val(); i >= 0 ; i--)
+					{
+						$("#output").append(singSong(i) + "<br />");
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

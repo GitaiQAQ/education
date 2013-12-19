@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Challenge #7</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<textarea id="textareaInput" cols="30" rows="30" placehoder="Enter some text to be translated into morse code" required></textarea>
+		<textarea id="textareaOutput" cols="30" rows="30" readonly></textarea><br />
+		<button id="submit">Translate!</button>
+
+		<script>
+			$(document).ready(function(){
+				function translateToMorseCode(text)
+				{
+					var translatedText = "";
+
+					var key = {
+						a: ".-",
+						b: "-...",
+						c: "-.-.",
+						d: "-..",
+						e: ".",
+						f: "..-.",
+						g: "--.",
+						h: "....",
+						i: "..",
+						j: ".---",
+						k: "-.-",
+						l: ".-..",
+						m: "--",
+						n: "-.",
+						o: "---",
+						p: ".--.",
+						q: "--.-",
+						r: ".-.",
+						s: "...",
+						t: "-",
+						u: "..-",
+						v: "...-",
+						w: ".--",
+						x: "-..-",
+						y: "-.--",
+						z: "--..",
+						" ": " / "
+					}
+
+					for(var i = 0; i < text.length; i++)
+					{
+						translatedText += key[text[i].toLowerCase()];
+					}
+
+					return translatedText;
+				}
+
+				$("#submit").click(function() {
+					$("#textareaOutput").text(translateToMorseCode($("#textareaInput").val()));
+				});
+			});
+		</script>
+	</body>
+</html>
